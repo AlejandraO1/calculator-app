@@ -6,21 +6,14 @@ h1 {
   text-align: center;
 }
 
-button {
-  padding: 20px 30px;
-  margin: 3px;
-  border-radius: 8px;
-  font-size: 15px;
-  text-align: justify;
-}
-
 .container {
   background-color: #113f67;
-  text-align: center;
-  margin: 0 auto;
-  padding: 30px;
+  padding: 20px;
   border-radius: 12px;
+  border: 5px solid #e7eaf6;
   width: 400px;
+  margin: 0 auto;
+  height: 600px;
 }
 
 .screen {
@@ -29,4 +22,50 @@ button {
   text-align: end;
   margin-bottom: 5px;
   border-radius: 12px;
+  word-wrap: break-word;
+  word-break: break-all;
+}
+
+.previous-equation {
+  min-height: 35px;
+  font-size: 20px;
+}
+
+.current-equation {
+  min-height: 64px;
+  font-size: 45px;
+}
+
+.clear {
+  padding: 25px 35px;
+  margin: 5px;
+  border-radius: 8px;
+  font-size: 25px;
+}
+
+.delete {
+  padding: 15px 20px;
+  margin: 5px;
+  border-radius: 8px;
+  font-size: 25px;
+}
+
+.number-button,
+.operator-button,
+.equal {
+  padding: 25px;
+  margin: 5px;
+  border-radius: 8px;
+  font-size: 25px;
+  text-align: center;
+}
+
+.grid-2-col {
+  display: grid;
+  grid-template-columns: 2fr 2fr;
+}
+
+.grid-4-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
 }
