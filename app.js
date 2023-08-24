@@ -88,3 +88,8 @@ equalButton.addEventListener(`click`, (button) => {
   calculator.compute();
   calculator.updateDisplay();
 });
+
+clearButton.addEventListener(`click`, (button) => {
+  calculator.clear();
+  calculator.updateDisplay();
+});
