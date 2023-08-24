@@ -19,12 +19,40 @@ class Calculator {
   }
 
   chooseOperation(operation) {
+    if (this.currentOperand === ``) return;
+    if (this.previousOperand !== ``) {
+      this.compute();
+    }
     this.operation = operation;
     this.previousOperand = this.currentOperand;
     this.currentOperand = ``;
   }
 
-  compute() {}
+  compute() {
+    let computation;
+    const previous = parseFloat(this.previousOperand);
+    const current = parseFloat(this.currentOperand);
+    if (isNaN(previous) || isNaN(current)) return;
+    switch (this.operation) {
+      case "+":
+        computation = previous + current;
+        break;
+      case "-":
+        computation = previous - current;
+        break;
+      case "*":
+        computation = previous * current;
+        break;
+      case "÷":
+        computation = previous / current;
+        break;
+      default:
+        return;
+    }
+    this.currentOperand = computation;
+    this.operation = undefined;
+    this.previousOperand = ``;
+  }
 
   updateDisplay() {
     this.currentEquation.innerText = this.currentOperand;
@@ -56,33 +84,7 @@ operatorButtons.forEach((button) => {
   });
 });
 
-function add(a, b) {
-  return a + b;
-}
-
-function subtract(a, b) {
-  return a - b;
-}
-
-function multiply(a, b) {
-  return a * b;
-}
-
-function divide(a, b) {
-  return a / b;
-}
-
-function operate(operator, a, b) {
-  a = Number(a);
-  b = Number(b);
-  switch (operator) {
-    case "+":
-      return add(a, b);
-    case "-":
-      return subtract(a, b);
-    case "*":
-      return multiply(a, b);
-    case "/":
-      return divide(a, b);
-  }
-}
+equalButton.addEventListener(`click`, (button) => {
+  calculator.compute();
+  calculator.updateDisplay();
+});
